@@ -180,10 +180,7 @@
 
     // определяем скорость файербола
     function getFireballSpeed(isWindOnTheLeft) {
-      if (isWindOnTheLeft) {
-        return 5;
-      }
-      return 2;
+      return isWindOnTheLeft ? 2 : 5;
     };
 
     var wizardWidth = 70;
