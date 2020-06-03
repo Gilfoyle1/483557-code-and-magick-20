@@ -46,11 +46,13 @@ window.renderStatistics = function (ctx, players, times) {
   for (var i = 0; i < players.length; i++) {
     ctx.fillStyle = (players[i] === 'Вы') ? 'rgba(255, 0, 0, 1)' : 'hsl(240, 100%,' + Math.random() * 100 + '%)';
 
+    var cloudSummX = CLOUD_X + SPACE_COLUMN + (SPACE_COLUMN + BAR_WIDTH) * i;
+
     // вызываем функцию для графиков
-    renderCloud(ctx, CLOUD_X + SPACE_COLUMN + (SPACE_COLUMN + BAR_WIDTH) * i, CLOUD_HEIGHT - (barHeight * times[i]) / maxTime - 30, BAR_WIDTH, (barHeight * times[i]) / maxTime, ctx.fillStyle);
+    renderCloud(ctx, cloudSummX, CLOUD_HEIGHT - (barHeight * times[i]) / maxTime - 30, BAR_WIDTH, (barHeight * times[i]) / maxTime, ctx.fillStyle);
     // вызываем функцию для имен игроков
-    renderText(ctx, players[i], CLOUD_X + SPACE_COLUMN + (SPACE_COLUMN + BAR_WIDTH) * i, CLOUD_HEIGHT - FONT_SPACE, FONT_F, '#000');
+    renderText(ctx, players[i], cloudSummX, CLOUD_HEIGHT - FONT_SPACE, FONT_F, '#000');
     // вызываем функцию для результата игрока
-    renderText(ctx, Math.floor(times[i]), CLOUD_X + SPACE_COLUMN + (SPACE_COLUMN + BAR_WIDTH) * i, CLOUD_HEIGHT - (barHeight * times[i]) / maxTime - 35, FONT_F, '#000');
+    renderText(ctx, Math.floor(times[i]), cloudSummX, CLOUD_HEIGHT - (barHeight * times[i]) / maxTime - 35, FONT_F, '#000');
   }
 };
