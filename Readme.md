@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Евгений Костомаров](https://up.htmlacademy.ru/javascript/20/user/483557).
-* Наставник: `Неизвестно`.
+* Наставник: [Евгений Лепешкин](https://htmlacademy.ru/profile/id144641).
 
 ---
 
