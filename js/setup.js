@@ -30,7 +30,7 @@ var wizards = [];
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
 
-  wizardElement.querySelector('.setup-similar-label').textContent = wizard.name + ' ' + wizard.lastName;
+  wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
   wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
 
@@ -38,16 +38,18 @@ var renderWizard = function (wizard) {
 };
 
 // создаем шаблон элемента и циклом добавляем их в массив
-var fragment = document.createDocumentFragment();
-for (var i = 0; i < COUNT; i++) {
-  wizards.push({
-    name: NAME_WIZARD_ARR[getRandomInt(0, NAME_WIZARD_ARR.length - 1)],
-    lastName: LAST_NAME_WIZARD_ARR[getRandomInt(0, LAST_NAME_WIZARD_ARR.length - 1)],
-    coatColor: COAT_COLOR_ARR[getRandomInt(0, COAT_COLOR_ARR.length - 1)],
-    eyesColor: EYES_COLOR_ARR[getRandomInt(0, EYES_COLOR_ARR.length - 1)]
-  });
-  fragment.appendChild(renderWizard(wizards[i]));
-}
+var renderWizards = function () {
+  var fragment = document.createDocumentFragment();
+  for (var i = 0; i < COUNT; i++) {
+    wizards.push({
+      name: NAME_WIZARD_ARR[getRandomInt(0, NAME_WIZARD_ARR.length - 1)] + ' ' + LAST_NAME_WIZARD_ARR[getRandomInt(0, LAST_NAME_WIZARD_ARR.length - 1)],
+      coatColor: COAT_COLOR_ARR[getRandomInt(0, COAT_COLOR_ARR.length - 1)],
+      eyesColor: EYES_COLOR_ARR[getRandomInt(0, EYES_COLOR_ARR.length - 1)]
+    });
+    fragment.appendChild(renderWizard(wizards[i]));
+  }
 
-// добавляем фрагмент в элемент страницы
-similarListElement.appendChild(fragment);
+  // добавляем фрагмент в элемент страницы
+  similarListElement.appendChild(fragment);
+};
+renderWizards();
