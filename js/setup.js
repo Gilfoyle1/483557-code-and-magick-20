@@ -8,7 +8,7 @@ var WIZARD_FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e8
 
 // ищем элементы с классом setup(блок с настройками) и setup-similar(блок с похожими персонажами), и удаляем у них класс hidden
 var setup = document.querySelector('.setup');
-setup.classList.remove('hidden');
+// setup.classList.remove('hidden');
 var similarWizard = document.querySelector('.setup-similar');
 similarWizard.classList.remove('hidden');
 
